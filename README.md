@@ -18,10 +18,10 @@ or time. For a given origin and destination, multiple possible routes might exis
    * Jetty
 
 # Setup
- 1. Open Ecplise and click on "Open Projects from Filesystem"
+ 1. Open Eclipse and click on "Open Projects from Filesystem"
  2. Select the projects inside the folder: **DELIVERY_SRV** and **DELIVERY_WEB_SRV**
  3. Ensure that both have no compilaton errors
- 4. Rigth click on project **DELIVERY_WEB_SRV** -> Run As -> Run with Jetty
+ 4. Right click on project **DELIVERY_WEB_SRV** -> Run As -> Run with Jetty
  5. Browse to http://localhost:8080/ and ensure that the following message is shown:
     `The Web Service is Ready!`
 
@@ -40,7 +40,7 @@ This table contains the available URIs to interact with the available objects co
 |addRoute        |POST        |/route                    |
 |updateRoute     |PUT         |/route                    |
 |deleteRoute     |DELETE      |/route/{from}/{to}        |
-|getRoute        |GET         |/route                    |
+|getRoute        |GET         |/route/{from}/{to}        |
 |getRoutes       |GET         |/routes                   |
 |getAllTrips     |GET         |/all-trips/{from}/{to}    |
 |getFastestTrip  |GET         |/fastest-trip/{from}/{to} |
