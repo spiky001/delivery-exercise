@@ -30,7 +30,7 @@ import delivery.route.entities.Trip;
 public class TestDeliveryController extends InitTest {
 
     @Before
-    public void loadPoints() throws ExistingPointException {
+    public void loadRoutes() throws ExistingPointException, ExistingRouteException, PointNotFoundException {
 
         super.loadPoints();
 
@@ -42,13 +42,9 @@ public class TestDeliveryController extends InitTest {
                            new Route(new Point(G), new Point(B), 64, 73), new Route(new Point(H), new Point(E), 30, 1),
                            new Route(new Point(I), new Point(B), 65, 5) };
 
-        for (Route r : routes) {
-            try {
-                _mngr.addRoute(r);
-            } catch (ExistingRouteException | PointNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
+		for (Route r : routes) {
+			_mngr.addRoute(r);
+		}
     }
 
 
@@ -89,7 +85,7 @@ public class TestDeliveryController extends InitTest {
 
         // get fastest trips between E and B
         Trip trips = _mngr.getFastestTrip(E, B);
-        assertEquals("Should have two routes", 4, trips.getRoutes().size());
+        assertEquals("Should have four routes", 4, trips.getRoutes().size());
 
         // Assert that the Routes are:
         // Route: E -> D
@@ -111,7 +107,7 @@ public class TestDeliveryController extends InitTest {
 
         // get Cheapest trips between E and B
         Trip trips = _mngr.getCheapestTrip(E, B);
-        assertEquals("Should have two routes", 4, trips.getRoutes().size());
+        assertEquals("Should have four routes", 4, trips.getRoutes().size());
 
         // Assert that the Routes are:
         // Route: E -> D
